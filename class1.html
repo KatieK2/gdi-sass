@@ -515,9 +515,9 @@ $defaultPadding: $defaultMargin;
           <h3>Math Operations</h3>
           <div>
             <p>Sass input:</p>
-            <pre><code contenteditable class ="sass css"><span class="variable">$layoutWidth</span>: 960px;
+            <pre><code contenteditable class ="sass css">$layoutWidth: 960px;
 #sidebar {
-  width: <span class="variable">$layoutWidth</span>/3;
+  width: $layoutWidth/3;
 }
 </code></pre>
             <p>CSS output:</p>
@@ -532,11 +532,11 @@ $defaultPadding: $defaultMargin;
           <h3>Math Operations</h3>
           <div>
             <p>Sass input:</p>
-            <pre><code contenteditable class ="sass css"><span class="variable">$layoutWidth</span>: 960px;
+            <pre><code contenteditable class ="sass css">$layoutWidth: 960px;
 $defaultPadding: 16px;
 #main {
   padding: $defaultPadding;
-  width: <span class="variable">$layoutWidth</span> - $defaultPadding*2;
+  width: $layoutWidth - $defaultPadding*2;
 }
 </code></pre>
             <p>CSS output:</p>
@@ -682,9 +682,9 @@ a { color: blue; }
           <table class="code-compare">
             <tr><td>
             <p>Sass input:</p>
-            <pre><code contenteditable class ="sass css"><span class="value">@mixin dropshadow(<span class="variable">$text</span>)</span> {
-  color: <span class="variable">$text</span>;
-  text-shadow: 2px 4px lighten(<span class="variable">$text</span>, 50%);
+            <pre><code contenteditable class ="sass css"><span class="value">@mixin dropshadow($text)</span> {
+  color: $text;
+  text-shadow: 2px 4px lighten($text, 50%);
 }
 p {
   <span class="value">@include dropshadow(black);</span>

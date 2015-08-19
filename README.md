@@ -1,13 +1,41 @@
-# Intro to Sass
+# GDI - Intro to Sass
 
-This is the Girl Develop It Intro to Sass course. Materials by Catherine Farman, based on <a href="https://github.com/girldevelopit/gdi-core-intermediate-html-css">Intermediate HTML/CSS materials</a> by Girl Develop It.
+Slides and materials are hosted at [http://gdiseattle.github.io/gdi-sass/](http://gdiseattle.github.io/gdi-sass/).
+
+## Course description
+
+Looking to take your CSS to the next level? Wondering how to improve your workflow and avoid repeating yourself in CSS? Come learn the basics of [Sass (Syntactically Awesome Stylesheets)](http://sass-lang.com) and unlock the magic of CSS preprocessing. You won't want go to back to vanilla CSS!
 
 The course is meant to be taught in 2 two-hour sections. Each of the slides and practice files are customizable according to the needs of a given class or audience.
 
-## Classes
+**Cost:** 
+$40.00 for both classes
+
+**Dates:** 
+This two class course runs on two Tuesdays:
+
+Class 1 - Intro to Sass: Tuesday, August 18, 6:00 - 8:00 pm 
+Class 2 - Applying Sass to Your Workflow: Tuesday, August 25, 6:00 - 8:00 pm
+
+**Location:** 
+
+TUNE Kitchen<br>
+2125 Western Avenue, Seattle, WA
+
+A limited number of scholarships are available for those with a financial hardship. To apply, contact us at seattle@girldevelopit.com.
+
+## Prerequisites:
+
+This class is recommended for students who have taken our Intro and Intermediate HTML & CSS classes or have a similar level of experience.
+
+
+## Tech requirements:
+
+At this time, you will need to provide your own laptop - PC or Mac - to participate in the course.
+
+## Topics covered:
 
 ### Class 1
-
 
 #### Part 1: Introduction to Sass. What is it? Why does it matter?
 We look at how Sass makes writing CSS easier, and set up our environment. You will install Ruby and Sass, learn basics of the command line and get your files set up to compile Sass into CSS.
@@ -30,24 +58,3 @@ Sass extends CSS3, and there are also tools that extend Sass! We'll look at the 
 * [CodeKit](http://incident57.com/codekit/) & [LiveReload](http://livereload.com/), applications for compiling Sass for your projects (without the command line)
 * [Sass Sleuth](http://www.mobify.com/dev/sass-sleuth-debugging-sass-in-webkit-browsers/), for debugging code in the browser inspector
 * [Codepen.io](http://www.codepen.io) for sharing code a la JSFiddle
-
-## Theme customization
-
-You can change theme colors by changing the theme css to any of the following options:
-```html
-  <link rel="stylesheet" href="css/theme/gdidefault.css" id="theme">
-  <link rel="stylesheet" href="css/theme/gdilight.css" id="theme">
-  <link rel="stylesheet" href="css/theme/gdisunny.css" id="theme">
-  <link rel="stylesheet" href="css/theme/gdicool.css" id="theme">
-```
-You can change the text editor theme by changing the highlight.js css to the following options:
-```html
-  <link rel="stylesheet" href="lib/css/dark.css">
-  <link rel="stylesheet" href="lib/css/light.css">
-```
-You can change transition by changing the reveal transition property in Reveal.initialize
-```javascript
-  Reveal.initialize({
-  				transition:  'default', // default/cube/page/concave/zoom/linear/none
-  			});
-```

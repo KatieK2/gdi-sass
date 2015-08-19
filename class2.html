@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Class 2 (Sass, Girl Develop It)</title>
+    <title>Class 2 - Intro to Sass, Girl Develop It</title>
 
     <meta name="description" content="This is the official Girl Develop It Intro to Sass course.
 
@@ -14,20 +14,27 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link rel="icon" type="image/png" href="reveal.js/favicon.ico">
-
-    <link rel="stylesheet" href="reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/gdidefault.css" id="theme">
-    <link rel="stylesheet" href="gdi-custom.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
 
     <!-- For syntax highlighting -->
-    <!-- light editor<link rel="stylesheet" href="reveal.js/lib/css/light.css"> -->
-    <!-- dark editor--><link rel="stylesheet" href="reveal.js/lib/css/dark.css">
-
-    <!-- If use the PDF print sheet so students can print slides-->
+    <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+    <!-- dark editor--><link rel="stylesheet" href="lib/css/dark.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
     
-    <link rel="stylesheet" href="reveal.js/css/print/pdf.css" type="text/css" media="print">
+    <link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
@@ -42,15 +49,15 @@
       <div class="slides">
         <!-- Opening slide -->
         <section>
-          <img src = "images/gdi_logo_badge.png" alt="Girl Develop It" class="badge">
-          <h1 class="h2-style">Intro to Sass</h2>
-          <h2 class="h3-style">Class 2</h2>
+          <img src="img/gdi_logo_badge.png" alt="Girl Develop It" style="max-height:300px;">
+          <h1>Intro to Sass</h2>
+          <h2>Class 2</h2>
         </section>
 
         <!-- Opening slide -->
         <section>
-          <h2 class="h3-style">Download Class 2 Files:</h2>
-          <h3 class="normal"><a href="http://tiny.cc/gdi-sass-2">tiny.cc/gdi-sass-2</a></h3>
+          <h2>Download Class 2 Files:</h2>
+          <p><a href="http://gdiseattle.github.io/gdi-sass/class2-exercises.zip">http://gdiseattle.github.io/gdi-sass/class2-exercises.zip</a></p>
         </section>
 
         <section>
@@ -65,7 +72,7 @@
 
         <section>
           <h3>Review: Extends</h3>
-          <div class = "left-align">
+          <div class="left-align">
           <p>Create an extend in _utilities:</p>
           <ul>
             <li>clearfix</li>
@@ -85,7 +92,7 @@ p {
         <!-- Review/Exercise 1 -->
         <section>
           <h3>Review: Mixins</h3>
-          <div class = "left-align">
+          <div class="left-align">
           <p>Create these mixins in _utilities:</p>
           <ul>
             <li><a href="http://css-tricks.com/snippets/css/css-text-shadow/" target="_blank" title="Link opens in a new window">dropshadow</a></li>
@@ -254,13 +261,13 @@ p {
            <table class="code-compare">
             <tr><td>
             <p>Sprite image:</p>
-            <a target="_blank" href="images/youtube_sprite.png"><img src="images/youtube_sprite.png"></a>
+            <a target="_blank" href="img/youtube_sprite.png"><img src="img/youtube_sprite.png"></a>
 </td>
 <td>
             <p>CSS for icon:</p>
             <pre style="width: 650px"><code contenteditable class ="sass css">.icon {
 display: block;
-background: no-repeat url(images/youtube_sprite.png) -395px -114px;
+background: no-repeat url(img/youtube_sprite.png) -395px -114px;
 background-size: auto;
 width: 18px;
 height: 18px; }</code></pre>
@@ -273,7 +280,7 @@ height: 18px; }</code></pre>
         <section>
           <h3>Sprite Mixins</h3>
           <div class="left-align">
-            <p>If you <a target="_blank" href="http://coding.smashingmagazine.com/2012/04/11/css-sprites-revisited/">set up your Photoshop sprite to use grid lines</a>, you can use Sass to easily position your <a target="_blank" href="images/sprite.png">sprite image</a> without lots of trial and error.</p>
+            <p>If you <a target="_blank" href="http://coding.smashingmagazine.com/2012/04/11/css-sprites-revisited/">set up your Photoshop sprite to use grid lines</a>, you can use Sass to easily position your <a target="_blank" href="img/sprite.png">sprite image</a> without lots of trial and error.</p>
             <pre style="width: 850px"><code contenteditable class ="sass css">@mixin sprite-position($x:0, $y:0) {
   $gridSize:  -32px;
   $offsetX:   $x * $gridSize;
@@ -281,7 +288,7 @@ height: 18px; }</code></pre>
   background-position: $offsetX $offsetY;
 }
 @mixin sprite-image($file, $x:0, $y:0) {
-  background-image: url("../../images/icons/#{$file}");
+  background-image: url("../../img/icons/#{$file}");
   @include sprite-position($x, $y);
 }</code></pre>
             
@@ -327,7 +334,7 @@ height: 18px; }</code></pre>
           <h3>Break Time!</h3>
           <div>
             <p>Stand up and stretch - we'll resume in 5 minutes</p>
-            <img src="images/stretchbreak.jpg">
+            <img src="img/stretchbreak.jpg">
           </div>
         </section>
 
@@ -373,7 +380,7 @@ height: 18px; }</code></pre>
         <!-- Exercise 5: Logic -->
         <section>
           <h3>If/Else If</h3>
-          <div class = "left-align">
+          <div class="left-align">
           <p>Rewrite your existing mixins to use if/else if statements, so that they output different CSS depending on different arguments.</p>
           <pre><code class ="php">@mixin arrow($direction: right) {
   @if $direction == right {
@@ -391,7 +398,7 @@ height: 18px; }</code></pre>
         <!-- Exercise 6: Loops -->
         <section>
           <h3>For Loops</h3>
-          <div class = "left-align">
+          <div class="left-align">
             <p>With <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_9" target="_blank" title="Link opens in a new window">@for</a> loops, you can make Sass write your classes and styles for you.</p>
  <table class="code-compare">
             <tr><td>
@@ -421,7 +428,7 @@ height: 18px; }</code></pre>
         <!-- Exercise 6: Loops -->
         <section>
           <h3>For Loops</h3>
-          <div class = "left-align">
+          <div class="left-align">
           <ul>
             <li>Use loops to write classes and styles for you! Use them to make columns that fit within in our layout, and add links to our footer nav in these columns.</li>
             <li>Experiment with math in your loop's styles - change the width, padding, even font-size</li>
@@ -436,7 +443,7 @@ height: 18px; }</code></pre>
         <!-- Looping with @Each -->
         <section>
           <h3>@each</h3>
-          <div class = "left-align">
+          <div class="left-align">
             <p>With <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#each-directive" target="_blank" title="Link opens in a new window">@each</a>, you can loop through a list of items and create styles for each item in the list.</p>
  <table class="code-compare">
             <tr><td>
@@ -469,7 +476,7 @@ height: 18px; }</code></pre>
         <!-- Exercise 7: Loops -->
         <section>
           <h3>@each</h3>
-          <div class = "left-align">
+          <div class="left-align">
           <ul>
             <li>Create background image styles for each Famous Woman article</li>
             <li>Try <a href="http://SubtlePatterns.com" target="_blank" title="Link opens in a new window">SubtlePatterns.com</a> for images to use</li>
@@ -478,7 +485,7 @@ height: 18px; }</code></pre>
           </ul>
           <pre style="width: 1100px; position: relative; left: -100px;"><code class ="php">@each $woman in ada, grace, frances, barbara, anita, maria {
   .#{$woman}-bg {
-    background-image: url('images/#{$woman}.png');
+    background-image: url('img/#{$woman}.png');
   }
 }</code></pre>
           </div>
@@ -487,7 +494,7 @@ height: 18px; }</code></pre>
        <!-- Extend SASS -->
         <section>
           <h3>Extend Sass</h3>
-          <div class = "left-align">
+          <div class="left-align">
             <p>The following tools can help you write Sass even faster:</p>
           <ul>
             <li><a target="_blank" href="http://incident57.com/codekit/">CodeKit</a>: Compile Sass &amp; more without command line</li>
@@ -501,7 +508,7 @@ height: 18px; }</code></pre>
        <!-- More to Explore -->
         <section>
           <h3>More to Explore</h3>
-          <div class = "left-align">
+          <div class="left-align">
           <ul>
             <li><a target="_blank" href="http://haml.info/">Haml</a>: like Sass for HTML</li>
             <li><a target="_blank" href="http://guides.railsgirls.com/">Rails</a>: Rails is a software development framework written in Ruby. Sass &amp; Haml are used in Rails apps. Try the Rails Girls tutorials to build your own app!</li>
@@ -513,46 +520,43 @@ height: 18px; }</code></pre>
         <!-- -->
         <section>
           <h2>Questions?</h2>
-          <div style = "font-size:1200%; height:100%; margin-top:30%" class ="blue">?
+          <div style="font-size:1200%; height:100%; margin-top:30%" class ="blue">?
             <div class ="clear"></div></div>
         </section>
       </div>
       <footer>
         <div class="copyright">
-          Sass ~ Girl Develop It ~
+          Intro to Sass ~ GDI Seattle
           <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
         </div>
       </footer>
     </div>
 
-
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
 
     <script>
-
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
         controls: true,
         progress: true,
         history: true,
+        center: true,
 
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-        // Optional libraries used to extend on reveal.js
+        // Optional reveal.js plugins
         dependencies: [
-          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
-
     </script>
-
   </body>
 </html>
