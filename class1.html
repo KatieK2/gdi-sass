@@ -51,6 +51,10 @@
             * Rework the "includes" demo. Probably just overview in "Ruby Sass Architecture"
             * Verify demo code in the "Let's Develop It" slides
             * put link to color funcs pen in slides
+            * In class 2, "review" would be variables, math ect
+            * Buttons are a classic mixin example
+            * I don't think we need the whole sprites section. If you must sprite, use Compass.
+            * Sass Superpower: media queries. Even better with variables $tablet: something
   -->
 
 		<div class="reveal">
@@ -668,16 +672,16 @@ invert(#2a79af)</code></pre>
           <table class="code-compare">
             <tr><td>
             <p>Sass input:</p>
-            <pre><code contenteditable class ="sass css"><span class="comment">/* Multiline comments will appear
- in the final CSS file */</span>
-<span class="value">//This single-line comment won't</span>
+            <pre><code contenteditable class ="sass css">/* Multiline comments will appear
+ in the final CSS file */
+//This single-line comment won't
 a { color: blue; }
 </code></pre>
 </td>
 <td>
             <p>CSS output:</p>
-            <pre><code contenteditable class ="sass css"><span class="comment">/* Multiline comments will appear
- in the final CSS file */</span>
+            <pre><code contenteditable class ="sass css">/* Multiline comments will appear
+ in the final CSS file */
   a { color: blue; }</code></pre>
 
           </tr></td></table>
@@ -690,12 +694,12 @@ a { color: blue; }
           <table class="code-compare">
             <tr><td>
             <p>Sass input:</p>
-            <pre><code contenteditable class ="sass css"><span class="value">@mixin dropshadow($text)</span> {
+            <pre><code contenteditable class ="sass css">@mixin dropshadow($text) {
   color: $text;
   text-shadow: 2px 4px lighten($text, 50%);
 }
 p {
-  <span class="value">@include dropshadow(black);</span>
+  @include dropshadow(black);
 }
 </code></pre>
 </td>

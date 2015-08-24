@@ -49,8 +49,8 @@
       <div class="slides">
         <!-- Opening slide -->
         <section>
-          <img src="img/gdi_logo_badge.png" alt="Girl Develop It" style="max-height:300px;">
-          <h1>Intro to Sass</h2>
+          <img src="img/gdi_logo_badge.png" alt="Girl Develop It" style="max-height:300px;" />
+          <h1>Intro to Sass</h1>
           <h2>Class 2</h2>
         </section>
 
@@ -58,47 +58,23 @@
         <section>
           <h2>Download Class 2 Files:</h2>
           <p><a href="http://gdiseattle.github.io/gdi-sass/class2-exercises.zip">http://gdiseattle.github.io/gdi-sass/class2-exercises.zip</a></p>
+          <p style="margin-top: 3rem; font-size: 125%"><a href="http://codepen.io/collection/XgYvdj/">http://codepen.io/collection/XgYvdj/</a></p>
         </section>
 
-        <section>
+        <section style="background-color: #bcbcbc">
           <h3>Review: Watching for Changes</h3>
           <div class="left-align">
             <p>First, navigate via the command line to your /class2-exercises/practice/stylesheets directory.</p>
             <p>Then type:</p>
 
-            <pre><code contenteditable class ="sass css">$ sass --watch scss:css</code></pre>
+            <pre><code contenteditable class="sass css">$ sass --watch scss:css</code></pre>
           </div>
         </section>
 
-        <section>
-          <h3>Review: Extends</h3>
-          <div class="left-align">
-          <p>Create an extend in _utilities:</p>
-          <ul>
-            <li>clearfix</li>
-          </ul>
-          <pre><code class ="php">%yourExtendName {
-  property: value;
-}
-
-// example usage
-p {
-  @extend %yourExtendName;
-}
-</code></pre>
-          </div>
-        </section>
-
-        <!-- Review/Exercise 1 -->
         <section>
           <h3>Review: Mixins</h3>
           <div class="left-align">
-          <p>Create these mixins in _utilities:</p>
-          <ul>
-            <li><a href="http://css-tricks.com/snippets/css/css-text-shadow/" target="_blank" title="Link opens in a new window">dropshadow</a></li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_gradients" target="_blank" title="Link opens in a new window">gradient</a></li>
-          </ul>
-          <pre><code class ="php">@mixin yourMixinName($optionalArgument) {
+          <pre><code class="sass css">@mixin yourMixinName($optionalArgument) {
   // hard-code values
   property: value;
 
@@ -172,12 +148,54 @@ p {
 </div>
         </section>
 
+        <!-- Exercise 2: Advanced Mixins -->
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Create some mixins!</p>
+          <p>Where should you define the mixin?</p>
+          <p>For example:</p>
+          <ul>
+            <li>
+              <a href="http://css-tricks.com/snippets/css/css-text-shadow/" target="_blank" title="Link opens in a new window">dropshadow</a>
+              <pre style="width: 100%"><code>@mixin dropshadow($text) {
+  color: $text;
+  text-shadow: 2px 4px lighten($text, 50%);
+}
+p {
+  @include dropshadow(black);
+}</code></pre>
+            </li>
+          </ul>
+          <p>Think about using:</p>
+          <ul>
+            <li>Multiple arguments</li>
+            <li>Default arguments</li>
+            <li>Interpolation</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Extends</h3>
+          <div class="left-align">
+          <p>Sometimes we have styles that duplicate another class. We can use the extend prefix (%) for these:</p>
+          <pre><code class="sass css">@mixin clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}</code></pre>
+          </div>
+          <div class="left-align">
+          <pre><code class="sass css">&:after {
+  @include clearfix;
+}</code></pre>
+          </div>
+        </section>
 
         <!-- @extend -->
         <section>
           <h3>@extend classes</h3>
           <div class="left-align">
-            Sometimes we have styles that duplicate another class, then add to it. We can use the extend prefix (%) for these, or extend a class:
+            <p>After extending a class, we can add to it:</p>
             <pre><code contenteditable class="sass css">.headline {
   font-size: 2em;
   font-weight: bold;
@@ -190,20 +208,22 @@ p {
 </div>
         </section>
 
+
+
         <!-- Exercise 2: Advanced Mixins -->
         <section>
           <h3>Let's Develop It</h3>
           <ul>
-          <li>Create new mixins using the following:
-            <ul>
-              <li>Multiple arguments</li>
-              <li>Default arguments</li>
-              <li>Interpolation</li>
-              <li>@extend to include common styles</li>
-            </ul>
+          <li>Create some extends! For example:
+            <pre><code class="sass css">@mixin clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}</code></pre>
+            <pre><code class="sass css">&:after {
+  @include clearfix;
+}</code></pre>
           </li>
-          <li>Use these mix-ins in your styles.scss file</li>
-          <li>Compile to CSS and refresh your index page to see your changes</li>
         </ul>
         </section>
 
@@ -212,10 +232,10 @@ p {
           <h3>CSS3: Browser Prefixes</h3>
           <div class="left-align">
             Lots of CSS3 features require browser prefixes or have complex syntaxes. These are perfectly suited to mixins, so we can include them in our styles without having to copy and paste from sites like <a target="_blank" href="http://css3please.com/">CSS3 Please</a>.
-            <pre><code contenteditable class="sass css">@mixin rotate($degree</span>, $position) {
-  -webkit-transform: rotate(#{$degree}</span>deg);
-  -moz-transform: rotate(#{$degree}</span>deg);
-  transform: rotate(#{$degree}</span>deg);
+            <pre><code contenteditable class="sass css">@mixin rotate($degree, $position) {
+  -webkit-transform: rotate(#{$degree}deg);
+  -moz-transform: rotate(#{$degree}deg);
+  transform: rotate(#{$degree}deg);
   -webkit-transform-origin: $position;
   -moz-transform-origin: $position;
   transform-origin: $position;
@@ -265,7 +285,7 @@ p {
 </td>
 <td>
             <p>CSS for icon:</p>
-            <pre style="width: 650px"><code contenteditable class ="sass css">.icon {
+            <pre style="width: 650px"><code contenteditable class="sass css">.icon {
 display: block;
 background: no-repeat url(img/youtube_sprite.png) -395px -114px;
 background-size: auto;
@@ -281,7 +301,7 @@ height: 18px; }</code></pre>
           <h3>Sprite Mixins</h3>
           <div class="left-align">
             <p>If you <a target="_blank" href="http://coding.smashingmagazine.com/2012/04/11/css-sprites-revisited/">set up your Photoshop sprite to use grid lines</a>, you can use Sass to easily position your <a target="_blank" href="img/sprite.png">sprite image</a> without lots of trial and error.</p>
-            <pre style="width: 850px"><code contenteditable class ="sass css">@mixin sprite-position($x:0, $y:0) {
+            <pre style="width: 850px"><code contenteditable class="sass css">@mixin sprite-position($x:0, $y:0) {
   $gridSize:  -32px;
   $offsetX:   $x * $gridSize;
   $offsetY:   $y * $gridSize;
@@ -291,7 +311,7 @@ height: 18px; }</code></pre>
   background-image: url("../../img/icons/#{$file}");
   @include sprite-position($x, $y);
 }</code></pre>
-
+          <p>Or use <a href="http://compass-style.org/">Compass</a>!</p>
         </div>
         </section>
 
@@ -314,18 +334,15 @@ height: 18px; }</code></pre>
         <section>
           <h3>Let's Develop It</h3>
           <ul>
-          <li>Create new mixins for the following use cases, combining as many as possible:
+          <li>Create more mixins and or extends. Examples:
             <ul>
-              <li>Sprite images</li>
-              <li>Opacity for all browsers, including IE</li>
-              <li>CSS3 box-shadow</li>
               <li>@font-face</li>
               <li>transitions</li>
               <li>CSS shapes</li>
+              <li>CSS3 box-shadow</li>
+              <li>Opacity for all browsers, including IE</li>
             </ul>
           </li>
-          <li>Use these mix-ins in your styles.scss file</li>
-          <li>Compile to CSS and refresh your index page to see your changes</li>
         </ul>
         </section>
 
@@ -362,27 +379,7 @@ height: 18px; }</code></pre>
           <h3>If/Else If</h3>
           <div class="left-align">
             <p>Sass has <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_7" target="_blank" title="Link opens in a new window">logic statements</a> that you can use to create conditionals. They are @if, @else if, and @else</p>
-            <pre style="width: 850px"><code contenteditable class ="sass css">@mixin opacity($value: 0.5) {
-  @if $value == transparent {
-    opacity: 0;
-  } @else if $value == opaque {
-    opacity: 1;
-  } @else {
-    opacity: $value;
-  }
-}
-@include opacity(transparent);
-</code></pre>
-
-        </div>
-        </section>
-
-        <!-- Exercise 5: Logic -->
-        <section>
-          <h3>If/Else If</h3>
-          <div class="left-align">
-          <p>Rewrite your existing mixins to use if/else if statements, so that they output different CSS depending on different arguments.</p>
-          <pre><code class ="php">@mixin arrow($direction: right) {
+            <pre><code class="sass css">@mixin arrow($direction: right) {
   @if $direction == right {
     //right arrow styles
   }
@@ -391,6 +388,34 @@ height: 18px; }</code></pre>
   }
 }
 </code></pre>
+            <pre><code class="sass css">h1 {
+  padding: 1rem;
+  background-color: pink;
+  @include arrow(left);
+}</code></pre>
+          <p><a href="http://codepen.io/KatieK2/pen/GJVKRo?editors=010">http://codepen.io/KatieK2/pen/GJVKRo</a></p>
+        </div>
+        </section>
+
+        <!-- Exercise 5: Logic -->
+        <section>
+          <h3>If/Else If</h3>
+          <div class="left-align">
+          <p>You can incorporate this into your existing mixins to use if/else if statements, so that they output different CSS depending on different arguments.</p>
+            <pre style="width: 850px"><code contenteditable class="sass css">@mixin opacity($value: 0.5) {
+  @if $value == transparent {
+    opacity: 0;
+  } @else if $value == opaque {
+    opacity: 1;
+  } @else {
+    opacity: $value;
+  }
+}
+
+h1 {
+  @include opacity(transparent);
+}</code></pre>
+            <p><a href="http://codepen.io/KatieK2/pen/jPjggG?editors=010" target="_blank">http://codepen.io/KatieK2/pen/jPjggG</a></p>
           </div>
         </section>
 
@@ -403,14 +428,13 @@ height: 18px; }</code></pre>
  <table class="code-compare">
             <tr><td>
             <p>Sass code:</p>
-            <pre style="width: 400px"><code class ="php">@for $i from 1 through 3 {
+            <pre style="width: 500px"><code class="sass css">@for $i from 1 through 3 {
   .column-#{$i} { width: 2em * $i; }
-}
-</code></pre>
+}</code></pre>
 </td>
 <td>
             <p>CSS output:</p>
-            <pre style="width: 320px"><code contenteditable class ="sass css">.column-1 {
+            <pre style="width: 320px"><code contenteditable class="sass css">.column-1 {
   width: 2em;
 }
 .column-2 {
@@ -419,9 +443,8 @@ height: 18px; }</code></pre>
 .column-3 {
   width: 6em;
 }</code></pre>
-
           </tr></td></table>
-
+            <p><a href="http://codepen.io/KatieK2/pen/waVwBJ?editors=010">http://codepen.io/KatieK2/pen/waVwBJ</a></p>
           </div>
         </section>
 
@@ -433,10 +456,6 @@ height: 18px; }</code></pre>
             <li>Use loops to write classes and styles for you! Use them to make columns that fit within in our layout, and add links to our footer nav in these columns.</li>
             <li>Experiment with math in your loop's styles - change the width, padding, even font-size</li>
           </ul>
-          <pre><code class ="php">@for $i from 1 through 3 {
-  .column-#{$i} { width: 2em * $i; }
-}
-</code></pre>
           </div>
         </section>
 
@@ -448,7 +467,7 @@ height: 18px; }</code></pre>
  <table class="code-compare">
             <tr><td>
             <p>Sass code:</p>
-            <pre style="width: 450px"><code class ="php">@each $icon in youtube, twitter, facebook {
+            <pre style="width: 525px"><code class="sass css">@each $icon in youtube, twitter, facebook {
   .icon-$icon {
     background-image: url('#{$icon}.png');
   }
@@ -457,7 +476,7 @@ height: 18px; }</code></pre>
 </td>
 <td>
             <p>CSS output:</p>
-            <pre style="width: 380px"><code contenteditable class ="sass css">.icon-youtube {
+            <pre style="width: 420px"><code contenteditable class="sass css">.icon-youtube {
   background: url('youtube.png');
 }
 .icon-twitter {
@@ -466,8 +485,8 @@ height: 18px; }</code></pre>
 .icon-facebook {
   background: url('facebook.png');
 }</code></pre>
-
           </tr></td></table>
+          <p><a href="http://codepen.io/KatieK2/pen/KpOPpZ?editors=010"></a></p>
 
           </div>
         </section>
@@ -475,7 +494,7 @@ height: 18px; }</code></pre>
 
         <!-- Exercise 7: Loops -->
         <section>
-          <h3>@each</h3>
+          <h3>Let's Develop It! <code>@each</code></h3>
           <div class="left-align">
           <ul>
             <li>Create background image styles for each Famous Woman article</li>
@@ -483,7 +502,7 @@ height: 18px; }</code></pre>
             <li>Write these background styles with @each and a list</li>
             <li>Bonus: style your social media icons using @each and @if logic</li>
           </ul>
-          <pre style="width: 1100px; position: relative; left: -100px;"><code class ="php">@each $woman in ada, grace, frances, barbara, anita, maria {
+          <pre style="width: 1100px; position: relative; left: -100px;"><code class="sass css">@each $woman in ada, grace, frances, barbara, anita, maria {
   .#{$woman}-bg {
     background-image: url('img/#{$woman}.png');
   }
@@ -500,7 +519,8 @@ height: 18px; }</code></pre>
             <li><a target="_blank" href="http://incident57.com/codekit/">CodeKit</a>: Compile Sass &amp; more without command line</li>
             <li><a target="_blank" href="http://www.mobify.com/dev/sass-sleuth-debugging-sass-in-webkit-browsers/">Sass Sleuth</a>: See Sass line numbers in your browser</li>
             <li><a target="_blank" href="http://livereload.com/">Live Reload</a>: Compile Sass without refreshing your browser</li>
-            <li><a target="_blank" href="http://compass-style.org">Compass</a></li>
+            <li><a target="_blank" href="http://compass-style.org">Compass</a>: Lots of mixins and advanced functionality (Ruby only)</li>
+            <li><a target="_blank" href="http://sassmeister.com/">Sassmeister</a>: Quickly test Sass. Lots of mixin options.</li>
           </ul>
           </div>
         </section>
@@ -520,8 +540,8 @@ height: 18px; }</code></pre>
         <!-- -->
         <section>
           <h2>Questions?</h2>
-          <div style="font-size:1200%; height:100%; margin-top:30%" class ="blue">?
-            <div class ="clear"></div></div>
+          <div style="font-size:1200%; height:100%; margin-top:30%" class="blue">?
+            <div class="clear"></div></div>
         </section>
       </div>
       <footer>
